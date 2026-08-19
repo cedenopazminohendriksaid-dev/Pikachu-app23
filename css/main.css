@@ -289,3 +289,183 @@ main {
     background-color: var(--type-fairy);
     color: var(--clr-black);
 }
+
+/* ==========================================
+   ESTILOS PARA EL BUSCADOR Y LISTA DESPLEGABLE
+   ========================================== */
+
+/* Contenedor principal de la barra de búsqueda */
+#ctn-bars-search {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto 10px auto;
+    padding: 0 10px;
+    position: relative;
+    z-index: 100;
+}
+
+/* Caja de texto (Input) */
+#inputSearch {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    background-color: var(--clr-white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#inputSearch:focus {
+    border-color: #3b4cca; /* Color azul estilo Pokémon */
+    box-shadow: 0 4px 15px rgba(59, 76, 202, 0.3);
+}
+
+/* Lista desplegable de sugerencias */
+#box-search {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: var(--clr-white);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: none; /* Se oculta por defecto y JS lo muestra */
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Ítems de la lista de sugerencias */
+#box-search li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    color: var(--clr-black);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--clr-gray);
+    transition: background-color 0.2s ease;
+}
+
+#box-search li:last-child a {
+    border-bottom: none;
+}
+
+#box-search li a:hover {
+    background-color: var(--clr-gray);
+    color: #3b4cca;
+}
+
+#box-search li a i {
+    color: #888;
+}
+
+/* Fondo oscuro translúcido al activar la búsqueda */
+#cover-ctn-search {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 90;
+    display: none; /* Se activa por JS */
+}
+
+/* ==========================================
+    PAGINACIÓN     
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+} 
+
+.pagination-container {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    color: #383838;
+    padding: 10px 40px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pagination ul {
+    margin: 20px 30px;
+}
+
+.pagination ul li {
+    display: inline-block;
+    margin: 0 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+    
+    /* Configuración para la animación */
+    background-image: linear-gradient(#ff4568, #ff4568);
+    background-repeat: no-repeat;
+    background-position: 0 45px; /* El fondo rosa empieza escondido abajo */
+    transition: background-position 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+ul li.active {
+    color: #fff;
+    background-position: 0 0; /* El fondo rosa sube a su posición normal */
+    transform: scale(1.1);   /* Crece un 10% para dar retroalimentación visual */
+}
+
+.btn1, .btn2{
+    display: inline-flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.pagination .btn1, .pagination .btn2 {
+    display: inline-flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 500;
+    color: #383838;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.pagination .btn1:hover, .pagination .btn2:hover {
+    opacity: 0.7; /* Transición suave al pasar el mouse por los botones */
+}
+
+.pagination .btn1 img {
+    width: 24px;
+    margin-right: 15px;
+}
+
+.pagination .btn2 img {
+    width: 24px;
+    margin-right: 15px;
+}

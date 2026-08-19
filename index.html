@@ -35,33 +35,40 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        
-        <div id="todos">
-            <div class="pokemon-todos" id="listaPokemon">
-                <!-- <div class="pokemon">
-                    <p class="pokemon-id-back">#025</p>
-                    <div class="pokemon-imagen">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
-                    </div>
-                    <div class="pokemon-info">
-                        <div class="nombre-contenedor">
-                            <p class="pokemon-id">#025</p>
-                            <h2 class="pokemon-nombre">Pikachu</h2>
-                        </div>
-                        <div class="pokemon-tipos">
-                            <p class="electric tipo">ELECTRIC</p>
-                            <p class="fighting tipo">FIGHTING</p>
-                        </div>
-                        <div class="pokemon-stats">
-                            <p class="stat">4m</p>
-                            <p class="stat">60kg</p>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+        <!-- Bloque del Buscador -->
+        <div id="ctn-bars-search">
+            <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
         </div>
 
+        <ul id="box-search"></ul>
+        <div id="cover-ctn-search"></div>
+
+        <!-- Contenedor de Pokémon -->
+        <div id="todos">
+            <div class="pokemon-todos" id="listaPokemon"></div>
+        </div>
+
+        <!-- Paginación -->
+        <div class="pagination-container">
+            <div class="pagination">
+                <button class="btn1" id="btn-back"> <img src="img/arrow1.png" alt="Anterior">Anterior </button>
+                <ul>    
+                    <li class="link active" value="1">1</li>
+                    <li class="link" value="2">2</li>
+                    <li class="link" value="3">3</li>
+                    <li class="link" value="4">4</li>
+                    <li class="link" value="5">5</li>
+                    <li class="link" value="6">6</li>
+                    <li class="link" value="7">7</li>
+                    <li class="link" value="8">8</li>
+                    <li class="link" value="9">9</li>
+                    <li class="link" value="10">10</li>
+                </ul>
+                <button class="btn2" id="btn-next"> <img src="img/arrow2.png" alt="Siguiente">Siguiente </button>
+            </div>
+        </div>
     </main>
 
     <script src="js/script.js"></script>
