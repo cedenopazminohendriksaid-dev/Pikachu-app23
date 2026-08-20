@@ -1,88 +1,255 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Pokédex</title>
+
     <link rel="stylesheet" href="css/main.css">
+
 </head>
+
 <body>
-    
+
     <header>
+
         <nav class="nav">
-            <center><img src="./img/logo.png" alt="Logo Pokédex"></center>
+
+            <center>
+                <img src="./img/logo.png" alt="Logo Pokédex">
+            </center>
+
             <ul class="nav-list">
-                <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li> 
-                <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
-                <li class="nav-item"><button class="btn btn-header fire" id="fire">Fuego</button></li>
-                <li class="nav-item"><button class="btn btn-header water" id="water">Agua</button></li>
-                <li class="nav-item"><button class="btn btn-header grass" id="grass">Planta</button></li>
-                <li class="nav-item"><button class="btn btn-header electric" id="electric">Eléctrico</button></li>
-                <li class="nav-item"><button class="btn btn-header ice" id="ice">Hielo</button></li>
-                <li class="nav-item"><button class="btn btn-header fighting" id="fighting">Lucha</button></li>
-                <li class="nav-item"><button class="btn btn-header poison" id="poison">Veneno</button></li>
-                <li class="nav-item"><button class="btn btn-header ground" id="ground">Tierra</button></li>
-                <li class="nav-item"><button class="btn btn-header flying" id="flying">Volador</button></li>
-                <li class="nav-item"><button class="btn btn-header psychic" id="psychic">Psíquico</button></li>
-                <li class="nav-item"><button class="btn btn-header bug" id="bug">Bicho</button></li>
-                <li class="nav-item"><button class="btn btn-header rock" id="rock">Roca</button></li>
-                <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Fantasma</button></li>
-                <li class="nav-item"><button class="btn btn-header dark" id="dark">Siniestro</button></li>
-                <li class="nav-item"><button class="btn btn-header dragon" id="dragon">Dragón</button></li>
-                <li class="nav-item"><button class="btn btn-header steel" id="steel">Acero</button></li>
-                <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Hada</button></li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header" id="ver-todos">
+                        Ver todos
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header normal" id="normal">
+                        Normal
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header fire" id="fire">
+                        Fuego
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header water" id="water">
+                        Agua
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header grass" id="grass">
+                        Planta
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header electric" id="electric">
+                        Eléctrico
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header ice" id="ice">
+                        Hielo
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header fighting" id="fighting">
+                        Lucha
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header poison" id="poison">
+                        Veneno
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header ground" id="ground">
+                        Tierra
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header flying" id="flying">
+                        Volador
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header psychic" id="psychic">
+                        Psíquico
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header bug" id="bug">
+                        Bicho
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header rock" id="rock">
+                        Roca
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header ghost" id="ghost">
+                        Fantasma
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header dark" id="dark">
+                        Siniestro
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header dragon" id="dragon">
+                        Dragón
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header steel" id="steel">
+                        Acero
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="btn btn-header fairy" id="fairy">
+                        Hada
+                    </button>
+                </li>
+
             </ul>
+
         </nav>
-  </header>
 
-<!-- Popup -->
+    </header>
 
-<div id="miPopup" class="popup-overlay">
 
-    <div class="popup-contenido">
+    <!-- Popup -->
 
-        <span id="btnCerrar" class="btn-cerrar">&times;</span>
+    <div id="miPopup" class="popup-overlay">
 
-        <img id="popupImagen" src="" alt="">
+        <div class="popup-contenido">
 
-        <h2 id="popupNombre"></h2>
+            <span id="btnCerrar" class="btn-cerrar">
+                &times;
+            </span>
 
-        <p id="popupId"></p>
+            <img id="popupImagen" src="" alt="">
 
-        <div id="popupTipos"></div>
+            <h2 id="popupNombre"></h2>
 
-        <p id="popupAltura"></p>
+            <p id="popupId"></p>
 
-        <p id="popupPeso"></p>
+            <div id="popupTipos"></div>
+
+            <p id="popupAltura"></p>
+
+            <p id="popupPeso"></p>
+
+
+            <!-- ESTADISTICAS -->
+
+            <div class="popup-estadisticas">
+
+                <h3>Estadísticas</h3>
+
+                <p id="popupHp"></p>
+
+                <p id="popupAtaque"></p>
+
+                <p id="popupDefensa"></p>
+
+                <p id="popupAtaqueEspecial"></p>
+
+                <p id="popupDefensaEspecial"></p>
+
+                <p id="popupVelocidad"></p>
+
+            </div>
+
+        </div>
+
     </div>
-
-</div>
-
-
-<main>
 
 
     <main>
-        <!-- Bloque del Buscador -->
+
+        <!-- Buscador -->
+
         <div id="ctn-bars-search">
-            <input type="text" id="inputSearch" placeholder="¿Qué deseas buscar?">
+
+            <input
+                type="text"
+                id="inputSearch"
+                placeholder="¿Qué deseas buscar?"
+            >
+
         </div>
+
 
         <ul id="box-search"></ul>
+
         <div id="cover-ctn-search"></div>
 
+
         <!-- Contenedor de Pokémon -->
+
         <div id="todos">
-            <div class="pokemon-todos" id="listaPokemon"></div>
+
+            <div
+                class="pokemon-todos"
+                id="listaPokemon"
+            ></div>
+
         </div>
 
+
         <!-- Paginación -->
+
         <div class="pagination-container">
+
             <div class="pagination">
-                <button class="btn1" id="btn-back"> <img src="img/arrow1.png" alt="Anterior">Anterior </button>
-                <ul>    
-                                        <li class="link active" value="1">1</li>
+
+                <button class="btn1" id="btn-back">
+
+                    <img
+                        src="img/arrow1.png"
+                        alt="Anterior"
+                    >
+
+                    Anterior
+
+                </button>
+
+
+                <ul>
+
+                    <li class="link active" value="1">1</li>
                     <li class="link" value="2">2</li>
                     <li class="link" value="3">3</li>
                     <li class="link" value="4">4</li>
@@ -134,12 +301,30 @@
                     <li class="link" value="50">50</li>
                     <li class="link" value="51">51</li>
                     <li class="link" value="52">52</li>
+
                 </ul>
-                <button class="btn2" id="btn-next"> <img src="img/arrow2.png" alt="Siguiente">Siguiente </button>
+
+
+                <button class="btn2" id="btn-next">
+
+                    <img
+                        src="img/arrow2.png"
+                        alt="Siguiente"
+                    >
+
+                    Siguiente
+
+                </button>
+
             </div>
+
         </div>
+
     </main>
 
+
     <script src="js/script.js"></script>
+
 </body>
+
 </html>
