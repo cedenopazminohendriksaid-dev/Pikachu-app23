@@ -1,145 +1,270 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pokédex</title>
 
     <link rel="stylesheet" href="css/main.css">
-
 </head>
 
 <body>
+
+    <!-- MENU SUPERIOR -->
 
     <header>
 
         <nav class="nav">
 
-            <center>
-                <img src="./img/logo.png" alt="Logo Pokédex">
-            </center>
+            <!-- LOGO -->
+
+            <div class="logo-container">
+
+                <img
+                    src="./img/logo.png"
+                    alt="Logo Pokédex"
+                >
+
+            </div>
+
+
+            <!-- BOTONES DEL MENU -->
 
             <ul class="nav-list">
 
+                <!-- FAVORITOS -->
+
+                <li class="nav-item favoritos-item">
+
+                    <button
+                        class="btn btn-header favoritos-boton"
+                        id="ver-favoritos"
+                    >
+
+                        <span>👍 Favoritos</span>
+
+                        <small id="contador-favoritos"></small>
+
+                    </button>
+
+                </li>
+
+
+                <!-- VER TODOS -->
+
                 <li class="nav-item">
-                    <button class="btn btn-header" id="ver-todos">
+
+                    <button
+                        class="btn btn-header"
+                        id="ver-todos"
+                    >
                         Ver todos
                     </button>
+
                 </li>
 
+
+                <!-- TIPOS DE POKEMON -->
+
                 <li class="nav-item">
-                    <button class="btn btn-header normal" id="normal">
+
+                    <button
+                        class="btn btn-header normal"
+                        id="normal"
+                    >
                         Normal
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header fire" id="fire">
+
+                    <button
+                        class="btn btn-header fire"
+                        id="fire"
+                    >
                         Fuego
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header water" id="water">
+
+                    <button
+                        class="btn btn-header water"
+                        id="water"
+                    >
                         Agua
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header grass" id="grass">
+
+                    <button
+                        class="btn btn-header grass"
+                        id="grass"
+                    >
                         Planta
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header electric" id="electric">
+
+                    <button
+                        class="btn btn-header electric"
+                        id="electric"
+                    >
                         Eléctrico
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header ice" id="ice">
+
+                    <button
+                        class="btn btn-header ice"
+                        id="ice"
+                    >
                         Hielo
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header fighting" id="fighting">
+
+                    <button
+                        class="btn btn-header fighting"
+                        id="fighting"
+                    >
                         Lucha
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header poison" id="poison">
+
+                    <button
+                        class="btn btn-header poison"
+                        id="poison"
+                    >
                         Veneno
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header ground" id="ground">
+
+                    <button
+                        class="btn btn-header ground"
+                        id="ground"
+                    >
                         Tierra
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header flying" id="flying">
+
+                    <button
+                        class="btn btn-header flying"
+                        id="flying"
+                    >
                         Volador
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header psychic" id="psychic">
+
+                    <button
+                        class="btn btn-header psychic"
+                        id="psychic"
+                    >
                         Psíquico
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header bug" id="bug">
+
+                    <button
+                        class="btn btn-header bug"
+                        id="bug"
+                    >
                         Bicho
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header rock" id="rock">
+
+                    <button
+                        class="btn btn-header rock"
+                        id="rock"
+                    >
                         Roca
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header ghost" id="ghost">
+
+                    <button
+                        class="btn btn-header ghost"
+                        id="ghost"
+                    >
                         Fantasma
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header dark" id="dark">
+
+                    <button
+                        class="btn btn-header dark"
+                        id="dark"
+                    >
                         Siniestro
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header dragon" id="dragon">
+
+                    <button
+                        class="btn btn-header dragon"
+                        id="dragon"
+                    >
                         Dragón
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header steel" id="steel">
+
+                    <button
+                        class="btn btn-header steel"
+                        id="steel"
+                    >
                         Acero
                     </button>
+
                 </li>
 
                 <li class="nav-item">
-                    <button class="btn btn-header fairy" id="fairy">
+
+                    <button
+                        class="btn btn-header fairy"
+                        id="fairy"
+                    >
                         Hada
                     </button>
+
                 </li>
 
             </ul>
@@ -149,17 +274,32 @@
     </header>
 
 
-    <!-- Popup -->
+    <!-- POPUP CON INFORMACION DEL POKEMON -->
 
-    <div id="miPopup" class="popup-overlay">
+    <div
+        id="miPopup"
+        class="popup-overlay"
+    >
 
         <div class="popup-contenido">
 
-            <span id="btnCerrar" class="btn-cerrar">
+            <!-- CERRAR POPUP -->
+
+            <span
+                id="btnCerrar"
+                class="btn-cerrar"
+            >
                 &times;
             </span>
 
-            <img id="popupImagen" src="" alt="">
+
+            <!-- INFORMACION PRINCIPAL -->
+
+            <img
+                id="popupImagen"
+                src=""
+                alt="Imagen de Pokémon"
+            >
 
             <h2 id="popupNombre"></h2>
 
@@ -197,9 +337,12 @@
     </div>
 
 
+    <!-- CONTENIDO PRINCIPAL -->
+
     <main>
 
-        <!-- Buscador -->
+
+        <!-- BUSCADOR -->
 
         <div id="ctn-bars-search">
 
@@ -212,30 +355,39 @@
         </div>
 
 
+        <!-- ELEMENTOS DEL ANTIGUO SISTEMA DE SUGERENCIAS -->
+
         <ul id="box-search"></ul>
 
         <div id="cover-ctn-search"></div>
 
 
-        <!-- Contenedor de Pokémon -->
+        <!-- LISTA DE POKEMON -->
 
         <div id="todos">
 
             <div
                 class="pokemon-todos"
                 id="listaPokemon"
-            ></div>
+            >
+            </div>
 
         </div>
 
 
-        <!-- Paginación -->
+        <!-- PAGINACION -->
 
         <div class="pagination-container">
 
             <div class="pagination">
 
-                <button class="btn1" id="btn-back">
+
+                <!-- ANTERIOR -->
+
+                <button
+                    class="btn1"
+                    id="btn-back"
+                >
 
                     <img
                         src="img/arrow1.png"
@@ -246,6 +398,8 @@
 
                 </button>
 
+
+                <!-- NUMEROS DE PAGINA -->
 
                 <ul>
 
@@ -305,14 +459,19 @@
                 </ul>
 
 
-                <button class="btn2" id="btn-next">
+                <!-- SIGUIENTE -->
+
+                <button
+                    class="btn2"
+                    id="btn-next"
+                >
+
+                    Siguiente
 
                     <img
                         src="img/arrow2.png"
                         alt="Siguiente"
                     >
-
-                    Siguiente
 
                 </button>
 
@@ -322,6 +481,8 @@
 
     </main>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="js/script.js"></script>
 
