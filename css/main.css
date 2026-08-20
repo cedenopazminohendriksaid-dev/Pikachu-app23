@@ -5,24 +5,24 @@
     --clr-gray: #ececec;
     --clr-white: #f7f7f7;
 
-    --type-normal: #A8A878;
-    --type-fire: #F08030;
-    --type-water: #6890F0;
-    --type-grass: #78C850;
-    --type-electric: #F8D030;
-    --type-ice: #98D8D8;
-    --type-fighting: #C03028;
-    --type-poison: #A040A0;
-    --type-ground: #E0C068;
-    --type-flying: #A890F0;
-    --type-psychic: #F85888;
-    --type-bug: #A8B820;
-    --type-rock: #B8A038;
-    --type-ghost: #705898;
-    --type-dark: #705848;
-    --type-dragon: #7038F8;
-    --type-steel: #B8B8D0;
-    --type-fairy: #F0B6BC;
+    --type-normal: #2B3A3A;
+    --type-fire: #8B2E00;
+    --type-water: #2B4C6F;
+    --type-grass: #1E4D2B;
+    --type-electric: #A67C1E;
+    --type-ice: #1F6B75;
+    --type-fighting: #7D2310; 
+  --type-poison: #3D1C4C; 
+  --type-ground: #8C7B47;   
+  --type-flying: #525E75;   
+  --type-psychic: #70283B;  
+  --type-bug: #5B6B1E;     
+  --type-rock: #68572B;     
+  --type-ghost: #272147;    
+  --type-dark: #291A10;     
+  --type-dragon: #1B2B8B;   
+  --type-steel: #4A565C;    
+  --type-fairy: #99596B;
 }
 
 * {
@@ -140,7 +140,7 @@ main {
 
 .pokemon-imagen img {
     width: 100%;
-    max-width: 6rem;
+    max-width: 12rem;
 }
 
 .pokemon-info {
@@ -199,10 +199,11 @@ main {
 }
 
 
+/* Tipos de Pokémon */
 
 .normal {
     background-color: var(--type-normal);
-    color: var(--clr-black);
+    color: var(--clr-white);
 }
 
 .fire {
@@ -217,7 +218,7 @@ main {
 
 .grass {
     background-color: var(--type-grass);
-    color: var(--clr-black);
+    color: var(--clr-white);
 }
 
 .electric {
@@ -290,11 +291,9 @@ main {
     color: var(--clr-black);
 }
 
-/* ==========================================
-   ESTILOS PARA EL BUSCADOR Y LISTA DESPLEGABLE
-   ========================================== */
 
-/* Contenedor principal de la barra de búsqueda */
+/* Buscador */
+
 #ctn-bars-search {
     width: 100%;
     max-width: 500px;
@@ -304,7 +303,6 @@ main {
     z-index: 100;
 }
 
-/* Caja de texto (Input) */
 #inputSearch {
     width: 100%;
     padding: 12px 20px;
@@ -318,11 +316,13 @@ main {
 }
 
 #inputSearch:focus {
-    border-color: #3b4cca; /* Color azul estilo Pokémon */
+    border-color: #3b4cca;
     box-shadow: 0 4px 15px rgba(59, 76, 202, 0.3);
 }
 
-/* Lista desplegable de sugerencias */
+
+/* Resultados del buscador */
+
 #box-search {
     position: absolute;
     top: calc(100% + 5px);
@@ -334,12 +334,11 @@ main {
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     z-index: 100;
-    display: none; /* Se oculta por defecto y JS lo muestra */
+    display: none;
     max-height: 250px;
     overflow-y: auto;
 }
 
-/* Ítems de la lista de sugerencias */
 #box-search li a {
     display: flex;
     align-items: center;
@@ -366,7 +365,9 @@ main {
     color: #888;
 }
 
-/* Fondo oscuro translúcido al activar la búsqueda */
+
+/* Fondo del buscador */
+
 #cover-ctn-search {
     width: 100%;
     height: 100%;
@@ -375,23 +376,15 @@ main {
     left: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 90;
-    display: none; /* Se activa por JS */
+    display: none;
 }
 
-/* ==========================================
-    PAGINACIÓN     
-   ========================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-} 
+/* Paginación */
 
 .pagination-container {
     width: 100%;
-    padding: 40px 0;
+    padding: 25px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -400,72 +393,318 @@ main {
 .pagination {
     display: flex;
     align-items: center;
+    justify-content: center;
+
     background: #fff;
     color: #383838;
-    padding: 10px 40px;
+
+    padding: 8px 18px;
+
     border-radius: 6px;
+
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    gap: 8px;
+
+    max-width: 100%;
 }
+
+
+/* Números de página */
 
 .pagination ul {
-    margin: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 350px;
+
+    margin: 0;
+    padding: 0;
+
+    gap: 3px;
+
+    overflow: hidden;
 }
 
+
+/* Número de página */
 .pagination ul li {
-    display: inline-block;
-    margin: 0 10px;
-    width: 45px;
-    height: 45px;
+    flex: 0 0 38px;
+
+    width: 38px;
+    height: 38px;
+
+    margin: 0;
+
     border-radius: 50%;
+
     text-align: center;
-    font-size: 22px;
+
+    font-size: 17px;
     font-weight: 500;
-    line-height: 45px;
+
+    line-height: 38px;
+
     cursor: pointer;
-    
-    /* Configuración para la animación */
+
     background-image: linear-gradient(#ff4568, #ff4568);
+
     background-repeat: no-repeat;
-    background-position: 0 45px; /* El fondo rosa empieza escondido abajo */
-    transition: background-position 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+    background-position: 0 38px;
+
+    transition:
+        background-position 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
 }
 
-ul li.active {
+
+/* Página actual */
+.pagination ul li.active {
     color: #fff;
-    background-position: 0 0; /* El fondo rosa sube a su posición normal */
-    transform: scale(1.1);   /* Crece un 10% para dar retroalimentación visual */
+
+    background-position: 0 0;
+
+    transform: scale(1.08);
 }
 
-.btn1, .btn2{
+
+/* Botones de paginación */
+
+.btn1,
+.btn2 {
     display: inline-flex;
+
     align-items: center;
-    font-size: 22px;
+
+    font-size: 17px;
+
     font-weight: 500;
 }
 
-.pagination .btn1, .pagination .btn2 {
+.pagination .btn1,
+.pagination .btn2 {
+
     display: inline-flex;
+
     align-items: center;
-    font-size: 22px;
+
+    justify-content: center;
+
+    font-size: 17px;
+
     font-weight: 500;
+
     color: #383838;
+
     background: transparent;
+
     outline: none;
+
     border: none;
+
     cursor: pointer;
+
     transition: opacity 0.2s ease;
+
+    white-space: nowrap;
 }
 
-.pagination .btn1:hover, .pagination .btn2:hover {
-    opacity: 0.7; /* Transición suave al pasar el mouse por los botones */
+.pagination .btn1:hover,
+.pagination .btn2:hover {
+
+    opacity: 0.7;
 }
 
-.pagination .btn1 img {
-    width: 24px;
-    margin-right: 15px;
-}
 
+/* Flechas */
+
+.pagination .btn1 img,
 .pagination .btn2 img {
-    width: 24px;
-    margin-right: 15px;
+
+    width: 20px;
+
+    height: auto;
+
+    margin-right: 7px;
+}
+
+
+/* Ajustes para pantallas pequeñas */
+
+@media screen and (max-width: 700px) {
+
+    .pagination {
+
+        padding: 8px 10px;
+
+        gap: 5px;
+    }
+
+    .pagination ul {
+
+        width: 270px;
+
+        gap: 2px;
+    }
+
+    .pagination ul li {
+
+        flex: 0 0 32px;
+
+        width: 32px;
+
+        height: 32px;
+
+        line-height: 32px;
+
+        font-size: 14px;
+    }
+
+    .pagination .btn1,
+    .pagination .btn2 {
+
+        font-size: 14px;
+    }
+
+    .pagination .btn1 img,
+    .pagination .btn2 img {
+
+        width: 16px;
+
+        margin-right: 4px;
+    }
+}
+
+
+
+
+/* Fondo del popup */
+.popup-overlay {
+  display: none; /* Se muestra al abrir */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del popup */
+.popup-contenido {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    animation: aparecerPopup 1s ease;
+}
+
+/* Botón para cerrar */
+.btn-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Datos del popup */
+
+#popupNombre {
+    margin: 10px 0 5px;
+}
+
+#popupId {
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+#popupTipos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#popupAltura,
+#popupPeso {
+    margin: 5px 0;
+}
+
+/* Imagen */
+
+#popupImagen {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    max-width: 100%;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Nombre */
+
+#popupNombre {
+    font-size: 1.8rem;
+    margin: 10px 0 5px;
+}
+
+
+/* ID */
+
+#popupId {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* ANIMACION DEL POPUP */
+
+@keyframes aparecerPopup {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+/* POPUP EN PANTALLAS PEQUEÑAS */
+
+@media (max-width: 600px) {
+
+    .popup-contenido {
+        width: 85%;
+        padding: 15px;
+    }
+
+    #popupImagen {
+        width: 140px;
+    }
+
+    #popupNombre {
+        font-size: 1.5rem;
+    }
+
+    #popupId {
+        font-size: 0.9rem;
+    }
+
+    #popupAltura,
+    #popupPeso {
+        font-size: 0.9rem;
+    }
+
 }

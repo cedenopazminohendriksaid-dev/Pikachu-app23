@@ -1,3 +1,5 @@
+// ELEMENTOS DE LA PAGINA
+
 const listaPokemon = document.querySelector("#listaPokemon");
 const botonesHeader = document.querySelectorAll(".btn-header");
 const links = document.querySelectorAll(".link");
@@ -5,19 +7,33 @@ const btnBack = document.querySelector("#btn-back");
 const btnNext = document.querySelector("#btn-next");
 const paginationList = document.querySelector(".pagination ul");
 
+
+// POPUP
+
+const popup = document.getElementById("miPopup");
+const popupImagen = document.getElementById("popupImagen");
+const popupNombre = document.getElementById("popupNombre");
+const popupId = document.getElementById("popupId");
+const popupTipos = document.getElementById("popupTipos");
+const popupAltura = document.getElementById("popupAltura");
+const popupPeso = document.getElementById("popupPeso");
+const btnCerrar = document.getElementById("btnCerrar");
+
+
+// CONFIGURACION
+
 let URL = "https://pokeapi.co/api/v2/pokemon/";
 let currentValue = 1;
 
-const TOTAL_POKEMON = 1025; // Límite actual de Pokémon en PokeAPI
+const TOTAL_POKEMON = 1025;
 const POKEMONS_POR_PAGINA = 20;
 const TOTAL_PAGINAS = 52;
 
 
-// ==========================================
-// CARGAR POKÉMON POR PÁGINA
-// ==========================================
+// CARGAR POKEMON POR PAGINA
 
 function cargarPagina(pagina) {
+
     listaPokemon.innerHTML = "";
 
     let inicio = (pagina - 1) * POKEMONS_POR_PAGINA + 1;
@@ -28,26 +44,26 @@ function cargarPagina(pagina) {
     }
 
     for (let i = inicio; i <= fin; i++) {
+
         fetch(URL + i)
             .then((response) => response.json())
-            .then(data => mostrarPokemon(data));
+            .then((data) => mostrarPokemon(data));
+
     }
 }
 
 
-// ==========================================
-// MOSTRAR POKÉMON
-// ==========================================
+// MOSTRAR POKEMON
 
 function mostrarPokemon(poke) {
 
-    let tipos = poke.types.map((type) => 
+    let tipos = poke.types.map((type) =>
         `<p class="${type.type.name} tipo">${type.type.name}</p>`
     );
 
-    tipos = tipos.join('');
+    tipos = tipos.join("");
 
-    let pokeId = poke.id.toString().padStart(3, '0');
+    let pokeId = poke.id.toString().padStart(3, "0");
 
     const alturaEnMetros = poke.height / 10;
     const pesoEnKg = poke.weight / 10;
@@ -60,8 +76,8 @@ function mostrarPokemon(poke) {
         <p class="pokemon-id-back">#${pokeId}</p>
 
         <div class="pokemon-imagen">
-            <img 
-                src="${poke.sprites.other["official-artwork"].front_default || poke.sprites.front_default}" 
+            <img
+                src="${poke.sprites.other["official-artwork"].front_default || poke.sprites.front_default}"
                 alt="${poke.name}"
             >
         </div>
@@ -85,50 +101,73 @@ function mostrarPokemon(poke) {
         </div>
     `;
 
+
+    // ABRIR POPUP
+
+    div.addEventListener("click", () => {
+
+        popupImagen.src =
+            poke.sprites.other["official-artwork"].front_default ||
+            poke.sprites.front_default;
+
+        popupImagen.alt = poke.name;
+
+        popupNombre.textContent = poke.name.toUpperCase();
+
+        popupId.textContent = `#${pokeId}`;
+
+        popupTipos.innerHTML = poke.types
+            .map(type =>
+                `<span class="${type.type.name} tipo">${type.type.name}</span>`
+            )
+            .join("");
+
+        popupAltura.textContent = `Altura: ${poke.height / 10} m`;
+
+        popupPeso.textContent = `Peso: ${poke.weight / 10} kg`;
+
+        popup.style.display = "flex";
+
+    });
+
+
     listaPokemon.append(div);
 }
 
 
-// ==========================================
-// CONTROL DE PAGINACIÓN CON DESPLAZAMIENTO SUAVE
-// ==========================================
+// CONTROL DE PAGINACION
 
 function updateActive() {
 
-    // 1. Quitar la clase active de todos los links
     links.forEach(link => link.classList.remove("active"));
 
-    // 2. Activar el botón de la página actual
     if (links[currentValue - 1]) {
         links[currentValue - 1].classList.add("active");
     }
 
-    // 3. Mover la tira de números para ver máximo 8 a la vez
     if (paginationList) {
-        const itemWidth = 41; // 38px de ancho del botón + 3px de espacio (gap)
-        const maxVisible = 8;  // Cantidad máxima visible en pantalla
 
-        // Centramos la página actual dentro de los 8 visibles
-        let scrollPosition = (currentValue - Math.floor(maxVisible / 2)) * itemWidth;
+        const itemWidth = 41;
+        const maxVisible = 8;
 
-        // Evitar desplazamientos negativos si estamos al inicio (páginas 1 a 4)
-        if (scrollPosition < 0) scrollPosition = 0;
+        let scrollPosition =
+            (currentValue - Math.floor(maxVisible / 2)) * itemWidth;
 
-        // Transición suave horizontal
+        if (scrollPosition < 0) {
+            scrollPosition = 0;
+        }
+
         paginationList.scrollTo({
             left: scrollPosition,
-            behavior: 'smooth'
+            behavior: "smooth"
         });
     }
 
-    // 4. Cargar la API con los Pokémon de esa página
     cargarPagina(currentValue);
 }
 
 
-// ==========================================
-// BOTONES DE LAS PÁGINAS
-// ==========================================
+// BOTONES DE LAS PAGINAS
 
 links.forEach(link => {
 
@@ -145,9 +184,7 @@ links.forEach(link => {
 });
 
 
-// ==========================================
-// BOTÓN ANTERIOR
-// ==========================================
+// BOTON ANTERIOR
 
 if (btnBack) {
 
@@ -166,9 +203,7 @@ if (btnBack) {
 }
 
 
-// ==========================================
-// BOTÓN SIGUIENTE
-// ==========================================
+// BOTON SIGUIENTE
 
 if (btnNext) {
 
@@ -187,11 +222,9 @@ if (btnNext) {
 }
 
 
-// ==========================================
 // FILTROS POR TIPO
-// ==========================================
 
-botonesHeader.forEach(boton => 
+botonesHeader.forEach(boton => {
 
     boton.addEventListener("click", (event) => {
 
@@ -207,7 +240,6 @@ botonesHeader.forEach(boton =>
 
             return;
         }
-
 
         for (let i = 1; i <= TOTAL_POKEMON; i++) {
 
@@ -229,24 +261,21 @@ botonesHeader.forEach(boton =>
 
         }
 
-    })
+    });
 
-);
+});
 
 
-// ==========================================
 // BUSCADOR
-// ==========================================
 
 const inputSearch = document.getElementById("inputSearch");
 const boxSearch = document.getElementById("box-search");
 const coverCtnSearch = document.getElementById("cover-ctn-search");
 
-
 if (inputSearch) {
 
     inputSearch.addEventListener(
-        "keyup", 
+        "keyup",
         filtrarPokemon
     );
 
@@ -263,7 +292,6 @@ function filtrarPokemon() {
 
     boxSearch.innerHTML = "";
 
-
     if (filter === "") {
 
         boxSearch.style.display = "none";
@@ -279,13 +307,11 @@ function filtrarPokemon() {
         return;
     }
 
-
     boxSearch.style.display = "block";
 
     if (coverCtnSearch) {
         coverCtnSearch.style.display = "block";
     }
-
 
     pokemons.forEach(pokemon => {
 
@@ -299,7 +325,6 @@ function filtrarPokemon() {
             .textContent
             .toLowerCase();
 
-
         if (
             nombre.includes(filter) ||
             id.includes(filter)
@@ -307,17 +332,14 @@ function filtrarPokemon() {
 
             pokemon.style.display = "block";
 
-
             const li = document.createElement("li");
 
             li.innerHTML = `
                 <a href="#">
-                    <i class="fas fa-search"></i> 
-                    ${nombre.toUpperCase()} 
+                    ${nombre.toUpperCase()}
                     (${id})
                 </a>
             `;
-
 
             li.addEventListener("click", (e) => {
 
@@ -335,9 +357,7 @@ function filtrarPokemon() {
 
             });
 
-
             boxSearch.appendChild(li);
-
 
         } else {
 
@@ -350,9 +370,7 @@ function filtrarPokemon() {
 }
 
 
-// ==========================================
 // CERRAR BUSCADOR AL HACER CLIC AFUERA
-// ==========================================
 
 if (coverCtnSearch) {
 
@@ -367,8 +385,32 @@ if (coverCtnSearch) {
 }
 
 
-// ==========================================
-// INICIALIZACIÓN
-// ==========================================
+// CERRAR POPUP CON LA X
+
+if (btnCerrar) {
+
+    btnCerrar.addEventListener("click", () => {
+
+        popup.style.display = "none";
+
+    });
+
+}
+
+
+// CERRAR POPUP CON ESC
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+
+        popup.style.display = "none";
+
+    }
+
+});
+
+
+// INICIAR PAGINA
 
 cargarPagina(1);
