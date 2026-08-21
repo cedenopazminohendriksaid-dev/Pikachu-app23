@@ -33,12 +33,17 @@ Interfaz optimizada para su correcta visualización en dispositivos móviles y d
 Muestra de sprites e ilustraciones en alta resolución.
 
 # Tecnologías Utilizadas
-# HTML5: Estructura semántica de la interfaz web.
+. HTML5:
+Estructura semántica de la interfaz web.
 
-# CSS3: Estilos, maquetación mediante Flexbox y Grid, y diseño adaptativo.
+ .CSS3:
+ Estilos, maquetación mediante Flexbox y Grid, y diseño adaptativo.
 
-# JavaScript (ES6+): Lógica de la aplicación, manipulación del DOM y consumo asíncrono de la API mediante Fetch y Async/Await.
+.JavaScript (ES6+): 
+Lógica de la aplicación, manipulación del DOM y consumo asíncrono de la API mediante Fetch y Async/Await.
 
-# PokeAPI v2: Fuente externa de datos.
+.PokeAPI v2:
+Fuente externa de datos.
 
-# Git y GitHub: Control de versiones y alojamiento del código fuente.
+.Git y GitHub: 
+Control de versiones y alojamiento del código fuente.
